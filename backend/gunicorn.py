@@ -1,6 +1,6 @@
 import os
 
-workers = 4
+workers = 1
 bind = "0.0.0.0:8080"
 accesslog = "-"
 loglevel = os.environ.get("LOG_LEVEL", "info")
