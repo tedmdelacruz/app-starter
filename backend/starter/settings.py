@@ -16,9 +16,9 @@ STATIC_API_TOKEN = os.environ.get("STATIC_API_TOKEN")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:5173"]
+CORS_ALLOWED_ORIGINS = ["http://localhost:5173", "https://code.tedmdelacruz.com"]
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["code.tedmdelacruz.com", "localhost", "127.0.0.1"]
 
 AUTH_USER_MODEL = "users.User"
 
