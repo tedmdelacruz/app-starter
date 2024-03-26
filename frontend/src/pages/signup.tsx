@@ -3,6 +3,7 @@ import {
 	Card,
 	CardBody,
 	Box,
+	Container,
 	Stack,
 	FormControl,
 	FormLabel,
@@ -53,11 +54,11 @@ function Signup() {
 	}
 
 	return (
-		<Box>
+		<Container maxW="2xl" centerContent>
 			<Box padding="6">
 				<Heading>{APP_NAME}</Heading>
 			</Box>
-			<Card minW="md">
+			<Card maxW="md">
 				<CardBody>
 					<form onSubmit={handleSubmit}>
 						<Stack spacing="6">
@@ -105,7 +106,7 @@ function Signup() {
 					</form>
 				</CardBody>
 			</Card>
-		</Box>
+		</Container>
 	)
 }
 

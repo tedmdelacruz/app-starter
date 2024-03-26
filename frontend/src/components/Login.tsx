@@ -1,5 +1,6 @@
 import {
 	Box,
+	Container,
 	Card,
 	CardBody,
 	Stack,
@@ -50,10 +51,10 @@ function Login() {
 	}
 
 	return (
-		<Box>
-			<Card minW="md">
+		<Container>
+			<Card>
 				<CardBody>
-					<Stack spacing="6">
+					<Stack spacing="8">
 						<Stack spacing="6">
 							<Success message={success} />
 							<Error message={error} />
@@ -77,7 +78,7 @@ function Login() {
 					</Stack>
 				</CardBody>
 			</Card>
-		</Box>
+		</Container>
 	)
 }
 
