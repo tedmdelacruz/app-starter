@@ -41,7 +41,8 @@ function Signup() {
 		})
 	}
 
-	async function handleSubmit() {
+	async function handleSubmit(e: React.FormEvent) {
+		e.preventDefault()
 		const response = await signup(formData)
 
 		if (!response.ok) {
@@ -94,7 +95,7 @@ function Signup() {
 								</FormControl>
 							</Stack>
 							<Stack spacing="6">
-								<Button colorScheme="teal" onClick={handleSubmit}>Sign Up</Button>
+								<Button type="submit" colorScheme="teal" onClick={handleSubmit}>Sign Up</Button>
 							</Stack>
 							<Divider />
 							<Stack spacing="6">

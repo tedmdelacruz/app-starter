@@ -12,7 +12,7 @@ import Success from "@/components/Success"
 import Error from "@/components/Error"
 import { Link as ReactRouterLink } from 'react-router-dom'
 import { Link as ChakraLink } from '@chakra-ui/react'
-import { useState } from "react"
+import React, { useState } from "react"
 import { login } from "@/api"
 
 function Login() {
@@ -34,7 +34,8 @@ function Login() {
 		})
 	}
 
-	async function handleSubmit() {
+	async function handleSubmit(e: React.FormEvent) {
+		e.preventDefault()
 		const response = await login(formData)
 
 		if (!response.ok) {
@@ -53,28 +54,30 @@ function Login() {
 		<Container>
 			<Card>
 				<CardBody>
-					<Stack spacing="8">
-						<Stack spacing="6">
-							<Success message={success} />
-							<Error message={error} />
-							<FormControl>
-								<FormLabel>Username</FormLabel>
-								<Input name="username" type="text" onChange={handleInputChange}/>
-							</FormControl>
-							<FormControl>
-								<FormLabel>Password</FormLabel>
-								<Input name="password" type="password" onChange={handleInputChange}/>
-							</FormControl>
+					<form onSubmit={handleSubmit}>
+						<Stack spacing="8">
+							<Stack spacing="6">
+								<Success message={success} />
+								<Error message={error} />
+								<FormControl>
+									<FormLabel>Username</FormLabel>
+									<Input name="username" type="text" onChange={handleInputChange}/>
+								</FormControl>
+								<FormControl>
+									<FormLabel>Password</FormLabel>
+									<Input name="password" type="password" onChange={handleInputChange}/>
+								</FormControl>
+							</Stack>
+							<Stack spacing="6">
+								<Button type="submit" colorScheme="teal" onClick={handleSubmit}>Login</Button>
+							</Stack>
+							<Stack spacing="6">
+								<ChakraLink as={ReactRouterLink} to='/signup'>
+									Don't have an account? Sign up
+								</ChakraLink>
+							</Stack>
 						</Stack>
-						<Stack spacing="6">
-							<Button colorScheme="teal" onClick={handleSubmit}>Login</Button>
-						</Stack>
-						<Stack spacing="6">
-							<ChakraLink as={ReactRouterLink} to='/signup'>
-								Don't have an account? Sign up
-							</ChakraLink>
-						</Stack>
-					</Stack>
+				</form>
 				</CardBody>
 			</Card>
 		</Container>
